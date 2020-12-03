@@ -57,14 +57,7 @@ on late-init
 on post-fs-data
     # Boot time tuning
     write /sys/block/sdc/queue/iostats 0
-    write /sys/block/sdc/queue/read_ahead_kb 2048
     write /sys/block/sdc/queue/nr_requests 256
-    write /sys/block/dm-0/queue/read_ahead_kb 2048
-    write /sys/block/dm-1/queue/read_ahead_kb 2048
-    write /sys/block/dm-2/queue/read_ahead_kb 2048
-    write /sys/block/dm-3/queue/read_ahead_kb 2048
-    write /sys/block/dm-4/queue/read_ahead_kb 2048
-    write /sys/block/dm-5/queue/read_ahead_kb 2048
 
     write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "0 100"
     write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "1 100"
@@ -91,14 +84,7 @@ on enable-low-power
 
     # Runtime tuning
     write /sys/block/sdc/queue/iostats 1
-    write /sys/block/sdc/queue/read_ahead_kb 512
     write /sys/block/sdc/queue/nr_requests 128
-    write /sys/block/dm-0/queue/read_ahead_kb 128
-    write /sys/block/dm-1/queue/read_ahead_kb 128
-    write /sys/block/dm-2/queue/read_ahead_kb 128
-    write /sys/block/dm-3/queue/read_ahead_kb 128
-    write /sys/block/dm-4/queue/read_ahead_kb 128
-    write /sys/block/dm-5/queue/read_ahead_kb 128
 
     write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "0 0"
     write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "1 0"
