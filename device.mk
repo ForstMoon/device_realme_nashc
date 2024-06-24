@@ -27,6 +27,9 @@ PRODUCT_PACKAGES += \
     fstab.mt6785 \
     fstab.mt6785.ramdisk
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init/init.recovery.mt6785.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mt6785.rc
+
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30
 
