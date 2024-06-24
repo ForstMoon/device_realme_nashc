@@ -26,5 +26,13 @@ ZYGOTE_FORCE_64 := true
 # Force any prefer32 targets to be compiled as 64 bit.
 IGNORE_PREFER32_ON_DEVICE := true
 
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := RM6785
+TARGET_NO_BOOTLOADER := true
+
+# Platform
+TARGET_BOARD_PLATFORM := mt6785
+BOARD_HAS_MTK_HARDWARE := true
+
 # Inherit the proprietary files
 include vendor/realme/nashc/BoardConfigVendor.mk
