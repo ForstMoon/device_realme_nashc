@@ -71,5 +71,9 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz
 TARGET_BOARD_PLATFORM := mt6785
 BOARD_HAS_MTK_HARDWARE := true
 
+# Verified Boot
+BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
+
 # Inherit the proprietary files
 include vendor/realme/nashc/BoardConfigVendor.mk
