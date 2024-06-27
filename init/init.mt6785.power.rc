@@ -1,0 +1,167 @@
+on charger
+    chmod 0775 /mnt/vendor
+    mkdir /mnt/vendor/nvcfg
+    mount ext4 /dev/block/platform/bootdevice/by-name/nvcfg /mnt/vendor/nvcfg rw wait
+    chown system system /mnt/vendor/nvcfg
+    chmod 0771 /mnt/vendor/nvcfg
+    restorecon_recursive /mnt/vendor/nvcfg
+    write /sys/devices/platform/battery_meter/FG_daemon_log_level 7
+    write /sys/bus/platform/devices/battery/FG_daemon_log_level 7
+
+    start fuelgauged
+    start fuelgauged_nvram
+
+    write /sys/class/leds/lcd-backlight/trigger "backlight"
+
+on property:init.svc.vendor.charger=running
+    # Enable UFS powersaving
+    write /sys/devices/platform/11270000.ufshci/clkgate_enable 1
+
+    # Set power saving parameters
+    write /proc/perfmgr/boost_ctrl/cpu_ctrl/boot_freq "-1 -1 -1 -1"
+    write /sys/devices/platform/10012000.dvfsrc_top/helio-dvfsrc/dvfsrc_debug "kir_emi -1"
+
+    # Keep one LITTLE and one big
+    write /sys/devices/system/cpu/cpu1/online 0
+    write /sys/devices/system/cpu/cpu2/online 0
+    write /sys/devices/system/cpu/cpu3/online 0
+    write /sys/devices/system/cpu/cpu4/online 0
+    write /sys/devices/system/cpu/cpu5/online 0
+    write /sys/devices/system/cpu/cpu7/online 0
+
+on init
+    # Disable UFS powersaving
+    write /sys/devices/platform/11270000.ufshci/clkgate_enable 0
+
+    # Increase sysctl_rmem_max and sysctl_wmem_max values to 2M
+    write /proc/sys/net/core/wmem_max 8388608
+    write /proc/sys/net/core/rmem_max 8388608
+
+    # Configure governor settings for little cluster
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
+
+    # Configure governor settings for big cluster
+    write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor "schedutil"
+
+    # Configure scheduler up/down_rate_limit_us
+    write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 500
+    write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 20000
+
+    # Configure cpuset parameters
+    write /dev/cpuset/foreground/cpus 0-7
+    write /dev/cpuset/foreground/boost/cpus 0-7
+    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/top-app/cpus 0-7
+
+on late-init
+    # Enable rcu_expedited
+    write /sys/kernel/rcu_expedited 1
+
+on post-fs-data
+    # Boot time tuning
+    write /sys/block/sdc/queue/iostats 0
+    write /sys/block/sdc/queue/read_ahead_kb 2048
+    write /sys/block/sdc/queue/nr_requests 256
+    write /sys/block/dm-0/queue/read_ahead_kb 2048
+    write /sys/block/dm-1/queue/read_ahead_kb 2048
+    write /sys/block/dm-2/queue/read_ahead_kb 2048
+    write /sys/block/dm-3/queue/read_ahead_kb 2048
+    write /sys/block/dm-4/queue/read_ahead_kb 2048
+    write /sys/block/dm-5/queue/read_ahead_kb 2048
+
+    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "0 100"
+    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "1 100"
+    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "2 100"
+    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "3 100"
+
+    # Power Manager
+    write /sys/power/pm_async 0
+    write /sys/power/pm_freeze_timeout 2000
+
+    # set mlock to 64MB for netd
+    setrlimit 8 67108864 67108864
+
+    # set mlock limit to infinate (for m4u operation)
+    setrlimit 8 -1 -1
+
+on boot
+    chmod 0660 /sys/power/autosleep
+    write /proc/sys/vm/dirty_writeback_centisecs 300
+
+on enable-low-power
+    # Enable UFS powersaving
+    write /sys/devices/platform/11270000.ufshci/clkgate_enable 1
+
+    # Runtime tuning
+    write /sys/block/sdc/queue/iostats 1
+    write /sys/block/sdc/queue/read_ahead_kb 512
+    write /sys/block/sdc/queue/nr_requests 128
+    write /sys/block/dm-0/queue/read_ahead_kb 128
+    write /sys/block/dm-1/queue/read_ahead_kb 128
+    write /sys/block/dm-2/queue/read_ahead_kb 128
+    write /sys/block/dm-3/queue/read_ahead_kb 128
+    write /sys/block/dm-4/queue/read_ahead_kb 128
+    write /sys/block/dm-5/queue/read_ahead_kb 128
+
+    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "0 0"
+    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "1 0"
+    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "2 0"
+    write /proc/perfmgr/boost_ctrl/eas_ctrl/boot_boost "3 0"
+    write /proc/perfmgr/boost_ctrl/cpu_ctrl/boot_freq "-1 -1 -1 -1"
+
+	write /sys/devices/platform/10012000.dvfsrc/helio-dvfsrc/dvfsrc_req_ddr_opp -1
+
+    # Configure scheduler parameters
+    write /proc/cpufreq/cpufreq_sched_disable 0
+    write /proc/sys/kernel/sched_migration_cost_ns 200000
+
+    # Configure DVFS
+    write /sys/kernel/ged/hal/dvfs_margin_value 130
+    write /sys/kernel/ged/hal/timer_base_dvfs_margin 798
+    write /sys/kernel/ged/hal/loading_base_dvfs_step 4
+
+    # Configure clamps for standard task groups.
+    # system-background
+    # cap the max utilisation for system-background tasks to save power.
+    write /dev/cpuctl/system-background/cpu.uclamp.max 40
+    write /dev/cpuctl/system-background/cpu.uclamp.min 0
+    write /dev/cpuctl/system-background/cpu.uclamp.latency_sensitive 0
+
+    # foreground
+    write /dev/cpuctl/foreground/cpu.uclamp.max max
+    write /dev/cpuctl/foreground/cpu.uclamp.min 0
+    write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 0
+
+    # top-app
+    write /dev/cpuctl/top-app/cpu.uclamp.max max
+    write /dev/cpuctl/top-app/cpu.uclamp.min 10
+    write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
+
+    # background
+    # cap the max utilisation for background tasks to save power.
+    write /dev/cpuctl/background/cpu.uclamp.max 50
+    write /dev/cpuctl/background/cpu.uclamp.min 0
+    write /dev/cpuctl/background/cpu.uclamp.latency_sensitive 0
+
+    # nnapi-hal
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp.max max
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp.min 75
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp.latency_sensitive 1
+
+    # camera-daemon
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.max max
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.min 0
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 1
+
+    # ZRAM configuration
+    write /sys/block/zram0/comp_algorithm lz4
+    write /proc/sys/vm/page-cluster 0
+    write /proc/sys/vm/swappiness 100
+    write /sys/kernel/mm/swap/vma_ra_enabled false
+
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
+
+on property:sys.boot_completed=1
+    trigger enable-low-power

@@ -79,7 +79,14 @@ PRODUCT_PACKAGES += \
 # Rootdir
 PRODUCT_PACKAGES += \
     fstab.mt6785 \
-    fstab.mt6785.ramdisk
+    fstab.mt6785.ramdisk \
+    init.connectivity.rc \
+    init.mt6785.rc \
+    init.mt6785.power.rc \
+    init.mt6785.usb.rc \
+    init.oplus.rc \
+    init.sensors.rc \
+    ueventd.mt6785.rc
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init/init.recovery.mt6785.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mt6785.rc

@@ -9,3 +9,52 @@ prebuilt_etc {
     vendor: true,
     ramdisk_available: true,
 }
+
+prebuilt_etc {
+    name: "init.connectivity.rc",
+    src: "init.connectivity.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.mt6785.rc",
+    src: "init.mt6785.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.mt6785.power.rc",
+    src: "init.mt6785.power.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.mt6785.usb.rc",
+    src: "init.mt6785.usb.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.oplus.rc",
+    src: "init.oplus.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sensors.rc",
+    src: "init.sensors.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "ueventd.mt6785.rc",
+    filename: "ueventd.rc",
+    src: "ueventd.mt6785.rc",
+    vendor: true,
+}
