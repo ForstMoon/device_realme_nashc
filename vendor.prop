@@ -1,3 +1,11 @@
+# Audio
+aaudio.mmap_exclusive_policy=2
+aaudio.mmap_policy=2
+ro.vendor.mtk_audio_alac_support=1
+ro.vendor.mtk_audio_ape_support=1
+ro.vendor.mtk_audio_tuning_tool_ver=V2.2
+ro.vendor.mtk_hifiaudio_support=1
+
 # Display
 persist.vendor.sys.mtkaal.function=0
 ro.hardware.egl=meow
