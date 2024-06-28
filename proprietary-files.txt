@@ -1,5 +1,9 @@
 # Unpinned blobs from RMX3085_11.F.12_3120_202407190952
 
+# AEE
+vendor/lib/libaedv.so
+vendor/lib64/libaedv.so
+
 # Display
 vendor/bin/hw/android.hardware.graphics.allocator@4.0-service-mediatek
 vendor/bin/hw/vendor.mediatek.hardware.mms@1.6-service
