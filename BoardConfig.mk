@@ -57,6 +57,7 @@ BOARD_MKBOOTIMG_ARGS += --board ""
 
 # Display
 TARGET_SCREEN_DENSITY := 480
+BOARD_EGL_CFG := $(DEVICE_PATH)/configs/egl.cfg
 
 # DTBO
 BOARD_KERNEL_SEPARATED_DTBO := true
