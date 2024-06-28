@@ -61,6 +61,10 @@ PRODUCT_PACKAGES += \
     libkeymaster4.vendor:64 \
     libkeymaster4support.vendor:64
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light-service.nashc
+
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
