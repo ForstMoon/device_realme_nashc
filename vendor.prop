@@ -39,6 +39,7 @@ ro.vendor.mtk_ovl_bringup=0
 ro.vendor.mtk_aod_support=1
 
 # SurfaceFlinger
+debug.sf.disable_client_composition_cache=1
 debug.sf.enable_gl_backpressure=1
 debug.sf.early.app.duration=20000000
 debug.sf.early.sf.duration=27600000
