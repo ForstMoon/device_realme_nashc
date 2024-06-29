@@ -101,6 +101,7 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
     FrameworksResOverlayNashc \
     LineageSDKOverlayNashc \
+    SettingsProviderOverlayNashc \
     SystemUIOverlayNashc
 
 # Permissions
