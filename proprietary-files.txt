@@ -351,3 +351,11 @@ vendor/app/mcRegistry/9073f03a9618383bb1856eb3f990babd.drbin
 vendor/app/mcRegistry/9073f03a9618383bb1856eb3f990babd.tlbin
 vendor/app/mcRegistry/98fb95bcb4bf42d26473eae48690d7ea.tabin
 vendor/app/mcRegistry/e97c270ea5c44c58bcd3384a2fa2539e.tabin
+
+# Touch
+odm/firmware/tp/20730/FW_FT3518_SAMSUNG_FAE.img
+odm/firmware/tp/20730/FW_FT3518_SAMSUNG.img
+odm/firmware/tp/20730/FW_GT9886_SAMSUNG_FAE.img
+odm/firmware/tp/20730/FW_GT9886_SAMSUNG.img
+odm/firmware/tp/20730/LIMIT_FT3518_SAMSUNG.img
+odm/firmware/tp/20730/LIMIT_GT9886_SAMSUNG.img
