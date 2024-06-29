@@ -292,6 +292,9 @@ vendor/lib64/libnvram.so
 vendor/lib64/vendor.mediatek.hardware.nvram@1.0.so
 vendor/lib64/vendor.mediatek.hardware.nvram@1.1.so
 
+# Sensors
+vendor/lib64/libsensorndkbridge.so:vendor/lib64/libsensorndkbridge-hidl.so
+
 # TEE
 vendor/bin/mcDriverDaemon
 vendor/etc/init/tee.rc

@@ -55,8 +55,17 @@ fi
 
 function blob_fixup {
     case "${1}" in
+        vendor/lib64/libsensorndkbridge-hidl.so)
+            "${PATCHELF}" --set-soname "libsensorndkbridge-hidl.so" "${2}"
+            ;;
+        vendor/lib64/libaalservice.so)
+            "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "libsensorndkbridge-hidl.so" "${2}"
+            ;;
         vendor/lib64/hw/audio.primary.mt6785.so)
             "${PATCHELF}" --replace-needed "libalsautils.so" "libalsautils-v31.so" "${2}"
+            ;;
+        vendor/lib64/hw/vendor.mediatek.hardware.pq@2.15-impl.so)
+            "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "libsensorndkbridge-hidl.so" "${2}"
             ;;
     esac
 }
