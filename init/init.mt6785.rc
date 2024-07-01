@@ -365,7 +365,7 @@ on boot
     chown system radio /dev/ttyGS1
 
     # Disable serial console
-    setprop init.svc.console stopped
+    stop console
 
 on property:vold.decrypt=trigger_restart_min_framework
     start nvram_daemon
