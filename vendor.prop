@@ -63,6 +63,9 @@ ro.vendor.mtk_sec_video_path_support=1
 ro.vendor.mtk_video_hevc_enc_support=1
 vendor.mtk.vdec.waitkeyframeforplay=15
 
+# Sensors
+ro.vendor.mtk.sensor.support=yes
+
 # SurfaceFlinger
 debug.sf.disable_client_composition_cache=1
 debug.sf.enable_gl_backpressure=1

@@ -352,6 +352,17 @@ vendor/lib64/vendor.mediatek.hardware.nvram@1.0.so
 vendor/lib64/vendor.mediatek.hardware.nvram@1.1.so
 
 # Sensors
+odm/bin/hw/vendor.oplus.hardware.oplusSensor@1.0-service
+odm/etc/init/vendor.oplus.hardware.oplusSensor@1.0-service.rc
+odm/etc/sensor/sensor_config.json
+odm/etc/vintf/manifest/manifest_oplusSensor.xml
+odm/lib64/vendor.oplus.hardware.oplusSensor@1.0.so
+vendor/lib64/hw/sensors.mt6785.so
+vendor/lib64/libakm.so
+vendor/lib64/libhwm-oplus.so
+vendor/lib64/libhwm.so
+vendor/lib64/libksensor.so
+vendor/lib64/libsensor_custom.so
 vendor/lib64/libsensorndkbridge.so:vendor/lib64/libsensorndkbridge-hidl.so
 
 # TEE
