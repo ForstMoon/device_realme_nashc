@@ -55,6 +55,9 @@ fi
 
 function blob_fixup {
     case "${1}" in
+        vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b)
+            grep -q "libstagefright_foundation-v33.so" "${2}" || "${PATCHELF}" --add-needed "libstagefright_foundation-v33.so" "${2}"
+            ;;
         vendor/lib64/libsensorndkbridge-hidl.so)
             "${PATCHELF}" --set-soname "libsensorndkbridge-hidl.so" "${2}"
             ;;
