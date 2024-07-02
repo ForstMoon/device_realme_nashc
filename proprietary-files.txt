@@ -432,3 +432,10 @@ odm/firmware/tp/20730/FW_GT9886_SAMSUNG_FAE.img
 odm/firmware/tp/20730/FW_GT9886_SAMSUNG.img
 odm/firmware/tp/20730/LIMIT_FT3518_SAMSUNG.img
 odm/firmware/tp/20730/LIMIT_GT9886_SAMSUNG.img
+
+# WMT
+vendor/bin/wmt_launcher
+vendor/bin/wmt_loader
+vendor/firmware/soc1_0_patch_mcu_2a_1_hdr.bin
+vendor/firmware/soc1_0_ram_mcu_2a_1_hdr.bin
+vendor/firmware/WMT_SOC.cfg

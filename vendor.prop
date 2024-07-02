@@ -14,6 +14,13 @@ vendor.usbsph.srcaws.pcm.dump=0
 vendor.streamout.pcm.dump=0
 vendor.streamin.pcm.dump=0
 
+# Connsys
+ro.vendor.connsys.dedicated.log.port=bt,wifi,gps,mcu
+persist.vendor.connsys.chipid=-1
+persist.vendor.connsys.patch.version=-1
+persist.vendor.connsys.dynamic.dump=0
+vendor.connsys.driver.ready=no
+
 # Display
 persist.vendor.sys.mtkaal.function=0
 ro.hardware.egl=meow
