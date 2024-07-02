@@ -238,5 +238,20 @@ PRODUCT_COPY_FILES += \
     prebuilts/vndk/v33/arm64/arch-arm64-armv8-a/shared/vndk-core/libstagefright_foundation.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libstagefright_foundation-v33.so \
     prebuilts/vndk/v32/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v32.so
 
+# Wi-Fi
+PRODUCT_PACKAGES += \
+    libwifi-hal-wrapper:64 \
+    wpa_supplicant \
+    hostapd \
+    android.hardware.wifi-service
+
+PRODUCT_PACKAGES += \
+    android.hardware.tetheroffload.config@1.0.vendor:64 \
+    android.hardware.tetheroffload.control@1.0.vendor:64 \
+    android.hardware.tetheroffload.control@1.1.vendor:64
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/realme/nashc/nashc-vendor.mk)

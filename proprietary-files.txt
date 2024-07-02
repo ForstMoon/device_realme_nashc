@@ -425,6 +425,15 @@ vendor/app/mcRegistry/9073f03a9618383bb1856eb3f990babd.tlbin
 vendor/app/mcRegistry/98fb95bcb4bf42d26473eae48690d7ea.tabin
 vendor/app/mcRegistry/e97c270ea5c44c58bcd3384a2fa2539e.tabin
 
+# Tether Offload
+vendor/bin/hw/tetheroffloadservice
+vendor/bin/netdagent
+vendor/etc/init/netdagent.rc
+vendor/etc/init/tetheroffloadservice.rc
+vendor/lib64/libforkexecwrap.so
+vendor/lib64/libifcutils_mtk.so
+vendor/lib64/vendor.mediatek.hardware.netdagent@1.0.so
+
 # Touch
 odm/firmware/tp/20730/FW_FT3518_SAMSUNG_FAE.img
 odm/firmware/tp/20730/FW_FT3518_SAMSUNG.img
@@ -439,3 +448,8 @@ vendor/bin/wmt_loader
 vendor/firmware/soc1_0_patch_mcu_2a_1_hdr.bin
 vendor/firmware/soc1_0_ram_mcu_2a_1_hdr.bin
 vendor/firmware/WMT_SOC.cfg
+
+# Wi-Fi
+vendor/firmware/soc1_0_ram_wifi_2a_1_hdr.bin
+vendor/firmware/WIFI_RAM_CODE_soc1_0_2a_1.bin
+vendor/lib64/libwifi-hal.so:vendor/lib64/libwifi-hal-mtk.so
