@@ -74,7 +74,8 @@ PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.4.vendor:64
+    android.hardware.drm@1.4.vendor:64 \
+    libprotobuf-cpp-lite-3.9.1-vendorcompat:64
 
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
