@@ -200,6 +200,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.mt6785 \
     fstab.mt6785.ramdisk \
+    fstab.zram \
     init.connectivity.rc \
     init.mt6785.rc \
     init.mt6785.power.rc \

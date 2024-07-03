@@ -160,6 +160,8 @@ on enable-low-power
     write /proc/sys/vm/swappiness 100
     write /sys/kernel/mm/swap/vma_ra_enabled false
 
+    swapon_all /vendor/etc/fstab.zram
+
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1
 
