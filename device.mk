@@ -31,6 +31,9 @@ PRODUCT_PACKAGES += \
     libdynproc:64 \
     libhapticgenerator:64
 
+PRODUCT_PACKAGES += \
+    libunwindstack.vendor
+
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
 
@@ -71,7 +74,9 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@4.0.vendor:64 \
     android.hardware.graphics.mapper@4.0.vendor:64 \
     android.frameworks.sensorservice@1.0.vendor:64 \
-    libdrm.vendor:64
+    libdrm.vendor:64 \
+    libpower.vendor:64 \
+    libutilscallstack.vendor:64
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -95,7 +100,8 @@ PRODUCT_PACKAGES += \
 # Gatekeeper
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service \
-    android.hardware.gatekeeper@1.0-impl:64
+    android.hardware.gatekeeper@1.0-impl:64 \
+    libgatekeeper.vendor:64
 
 # Health
 PRODUCT_PACKAGES += \
@@ -127,7 +133,11 @@ PRODUCT_PACKAGES += \
     libavservices_minijail_vendor:64 \
     libstagefright_softomx_plugin.vendor:64 \
     libsfplugin_ccodec_utils.vendor:64 \
-    libcodec2_soft_common.vendor:64
+    libcodec2_soft_common.vendor:64 \
+    libexpat.vendor:64
+
+PRODUCT_PACKAGES += \
+    libion.vendor
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/seccomp/,$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy) \
@@ -234,6 +244,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-service \
     android.hardware.sensors@1.0-impl:64
+
+PRODUCT_PACKAGES += \
+    libdumpstateutil.vendor:64
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30
