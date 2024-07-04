@@ -73,6 +73,10 @@ PRODUCT_PACKAGES += \
     android.frameworks.sensorservice@1.0.vendor:64 \
     libdrm.vendor:64
 
+# Doze
+PRODUCT_PACKAGES += \
+    OplusDoze
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
@@ -139,6 +143,7 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
     FrameworksResOverlayNashc \
     LineageSDKOverlayNashc \
+    OplusDozeOverlayNashc \
     SettingsProviderOverlayNashc \
     SystemUIOverlayNashc
 
