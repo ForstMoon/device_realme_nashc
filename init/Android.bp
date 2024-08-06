@@ -45,6 +45,13 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+    name: "init.nfc.rc",
+    src: "init.nfc.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
     name: "init.oplus.rc",
     src: "init.oplus.rc",
     sub_dir: "init/hw",
@@ -62,5 +69,11 @@ prebuilt_etc {
     name: "ueventd.mt6785.rc",
     filename: "ueventd.rc",
     src: "ueventd.mt6785.rc",
+    vendor: true,
+}
+
+sh_binary {
+    name: "nfc_detect.sh",
+    src: "nfc_detect.sh",
     vendor: true,
 }

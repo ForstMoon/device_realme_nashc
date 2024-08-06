@@ -1,6 +1,7 @@
 import /vendor/etc/init/hw/init.connectivity.rc
 import /vendor/etc/init/hw/init.mt6785.power.rc
 import /vendor/etc/init/hw/init.mt6785.usb.rc
+import /vendor/etc/init/hw/init.nfc.rc
 import /vendor/etc/init/hw/init.oplus.rc
 import /vendor/etc/init/hw/init.sensors.rc
 
