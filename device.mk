@@ -172,6 +172,7 @@ PRODUCT_PACKAGES += \
     LineageSDKOverlayNashc \
     OplusDozeOverlayNashc \
     SettingsProviderOverlayNashc \
+    SettingsOverlayNashc \
     SystemUIOverlayNashc
 
 # Permissions
