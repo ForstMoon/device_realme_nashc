@@ -94,3 +94,6 @@ on boot
     chmod 0666 /sys/kernel/oplus_display/power_status
     chmod 0666 /sys/kernel/oplus_display/sau_closebl_node
     chmod 0666 /sys/kernel/oplus_display/esd_status
+
+on property:ro.boot.prjname=*
+    setprop ro.separate.soft ${ro.boot.prjname}
