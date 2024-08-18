@@ -375,3 +375,6 @@ on property:vold.decrypt=trigger_restart_min_framework
 
 on property:vold.decrypt=trigger_restart_framework
     start nvram_daemon
+
+on property:sys.boot_completed=1
+    restart android-hardware-media-c2-hal-1-2
