@@ -1,5 +1,6 @@
 on early-init
-    exec u:r:vendor_init:s0 -- /vendor/bin/nfc_detect.sh
+    exec u:r:nfc_detect:s0 -- /vendor/bin/nfc_detect.sh
+    setprop ro.boot.product.vendor.sku ${ro.vendor.device.variant}
 
 on property:ro.boot.product.vendor.sku=nfc
     enable vendor.nfc_hal_service
