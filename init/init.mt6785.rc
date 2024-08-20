@@ -19,6 +19,14 @@ on early-fs
     start vold
 
 on fs
+    wait /dev/block/sda
+    wait /dev/block/sdb
+
+    symlink /dev/block/sda /dev/block/platform/11270000.ufshci/by-name/preloader
+    symlink /dev/block/sdb /dev/block/platform/11270000.ufshci/by-name/preloader_backup
+    symlink /dev/block/sda /dev/block/by-name/preloader
+    symlink /dev/block/sdb /dev/block/by-name/preloader_backup
+
     # Early mount required partitions.
     mount_all /vendor/etc/fstab.mt6785 --early
 

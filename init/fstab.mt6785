@@ -73,6 +73,8 @@ odm                              /odm           ext4   ro       wait,logical,fir
 /dev/block/by-name/audio_dsp /audio_dsp            emmc defaults                                                 defaults
 /dev/block/by-name/pi_img    /pi_img               emmc defaults                                                 defaults
 /dev/block/by-name/boot_para /boot_para            emmc defaults                                                 defaults
+/dev/block/by-name/preloader /preloader            emmc defaults                                                 defaults
+/dev/block/by-name/preloader_backup /preloader_backup emmc defaults                                                 defaults
 
 # External Storage
 /devices/platform/11240000.mmc0/mmc_host* auto               auto defaults                                                 wait,voldmanaged=sdcard1:auto,encryptable=userdata

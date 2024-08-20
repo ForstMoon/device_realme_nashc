@@ -6,7 +6,7 @@ on fs
     wait /dev/block/sda
     wait /dev/block/sdb
 
-    symlink /dev/block/sda /dev/block/platform/11270000.ufshci/by-name/preloader_a
-    symlink /dev/block/sdb /dev/block/platform/11270000.ufshci/by-name/preloader_b
-    symlink /dev/block/sda /dev/block/by-name/preloader_a
-    symlink /dev/block/sdb /dev/block/by-name/preloader_b
+    symlink /dev/block/sda /dev/block/platform/11270000.ufshci/by-name/preloader
+    symlink /dev/block/sdb /dev/block/platform/11270000.ufshci/by-name/preloader_backup
+    symlink /dev/block/sda /dev/block/by-name/preloader
+    symlink /dev/block/sdb /dev/block/by-name/preloader_backup
