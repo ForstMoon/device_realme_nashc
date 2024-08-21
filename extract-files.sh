@@ -58,6 +58,13 @@ function blob_fixup {
         vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b)
             grep -q "libstagefright_foundation-v33.so" "${2}" || "${PATCHELF}" --add-needed "libstagefright_foundation-v33.so" "${2}"
             ;;
+        vendor/etc/libnfc-nci.conf)
+            sed -i "s/NFC_DEBUG_ENABLED=0x01/NFC_DEBUG_ENABLED=0x00/" "${2}"
+            ;;
+        vendor/etc/libnfc-nxp.conf)
+            sed -i "/NXPLOG_\w\+_LOGLEVEL/ s/0x03/0x02/" "${2}"
+            sed -i "s/NFC_DEBUG_ENABLED=0x01/NFC_DEBUG_ENABLED=0x00/" "${2}"
+            ;;
         vendor/lib64/libsensorndkbridge-hidl.so)
             "${PATCHELF}" --set-soname "libsensorndkbridge-hidl.so" "${2}"
             ;;
