@@ -72,6 +72,7 @@ function blob_fixup {
         vendor/lib64/libsensorndkbridge-hidl.so)
             "${PATCHELF}" --set-soname "libsensorndkbridge-hidl.so" "${2}"
             ;;
+        vendor/bin/mnld|\
         vendor/lib64/libaalservice.so)
             "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "libsensorndkbridge-hidl.so" "${2}"
             ;;
