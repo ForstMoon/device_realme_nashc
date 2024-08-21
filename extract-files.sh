@@ -77,7 +77,9 @@ function blob_fixup {
             "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "$2"
             ;;
         vendor/bin/mnld|\
-        vendor/lib64/libaalservice.so)
+        vendor/lib64/libaalservice.so|\
+        vendor/lib64/libcam.utils.sensorprovider.so|\
+        vendor/lib64/liboplus_mtkcam_lightsensorprovider.so)
             "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "libsensorndkbridge-hidl.so" "${2}"
             ;;
         vendor/lib64/hw/audio.primary.mt6785.so)
