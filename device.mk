@@ -295,6 +295,10 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/mediatek/libmtkperf_client \
     hardware/oplus
 
+# Sound Trigger
+PRODUCT_PACKAGES += \
+    android.hardware.soundtrigger@2.3-impl
+
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.mediatek
