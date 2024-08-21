@@ -19,6 +19,11 @@
         <fqname>@1.1::IBluetoothHci/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.camera.provider</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.6::ICameraProvider/internal/0</fqname>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.gatekeeper</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IGatekeeper/default</fqname>
@@ -92,6 +97,26 @@
         <name>vendor.lineage.touch</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IHighTouchPollingRate/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.camera.atms</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IATMs/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.camera.bgservice</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IBGService/internal/0</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.camera.isphal</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IISPModule/internal/0</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.camera.postproc</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IPostDevice/internal/0</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.mediatek.hardware.composer_ext</name>
