@@ -451,6 +451,7 @@ vendor/lib64/libstorage_otp.so
 vendor/lib64/libsysenv.so
 vendor/lib64/libtrm.so
 vendor/lib64/libwpfa.so
+vendor/lib64/vendor.mediatek.hardware.mtkradioex@2.0.so
 vendor/lib64/vendor.mediatek.hardware.mtkradioex@3.0.so
 vendor/lib64/vendor.oplus.hardware.radio-V1-ndk_platform.so
 
@@ -481,6 +482,10 @@ vendor/lib/vendor.mediatek.hardware.videotelephony@1.0.so
 vendor/lib64/hw/vendor.mediatek.hardware.videotelephony@1.0-impl.so
 vendor/lib64/vendor.mediatek.hardware.clientapi@1.0.so
 vendor/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
+
+# Secure Element
+vendor/bin/hw/android.hardware.secure_element@1.2-service-mediatek
+vendor/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc
 
 # Sensors
 odm/bin/hw/vendor.oplus.hardware.oplusSensor@1.0-service
