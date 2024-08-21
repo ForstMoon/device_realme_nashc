@@ -86,6 +86,9 @@ debug.mediatek.disp_decompress=1
 ro.vendor.mtk_ovl_bringup=0
 ro.vendor.mtk_aod_support=1
 
+# GNSS
+ro.vendor.mtk_log_hide_gps=1
+
 # Media
 debug.stagefright.c2inputsurface=-1
 media.c2.dmabuf.padding=3072

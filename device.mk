@@ -110,6 +110,16 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl:64 \
     libgatekeeper.vendor:64
 
+# GNSS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss.measurement_corrections@1.1.vendor \
+    android.hardware.gnss.visibility_control@1.0.vendor \
+    android.hardware.gnss@1.1.vendor \
+    android.hardware.gnss@2.1.vendor \
+    android.hardware.gnss-V1-ndk_platform.vendor \
+    libcurl.vendor \
+    libexpat.vendor
+
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.mediatek \
