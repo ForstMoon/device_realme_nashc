@@ -187,6 +187,9 @@ ro.vendor.ap_info_monitor=0
 ro.vendor.md_auto_setup_ims=1
 ro.vendor.mtk_data_config=1
 
+# LMKD
+ro.lmk.kill_heaviest_task=true
+
 # Sensors
 ro.vendor.mtk.sensor.support=yes
 
