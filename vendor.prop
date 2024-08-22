@@ -63,6 +63,7 @@ ro.vendor.mtk_cam_security_support=1
 ro.vendor.mtk_camera_app_version=3
 ro.vendor.mtk_slow_motion_support=1
 ro.vendor.mtk_zsdhdr_support=1
+vendor.camera.aux.packageexcludelist=org.telegram.messenger,org.thunderdog.challegram
 vendor.camera.mdp.cz.enable=1
 vendor.camera.mdp.dre.enable=1
 
