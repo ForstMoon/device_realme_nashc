@@ -303,10 +303,14 @@ PRODUCT_PACKAGES += \
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-service \
-    android.hardware.sensors@1.0-impl:64
+    android.hardware.sensors@1.0-impl:64 \
+    sensors.oplus_virtual:64
 
 PRODUCT_PACKAGES += \
     libdumpstateutil.vendor:64
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 30

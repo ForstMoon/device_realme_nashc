@@ -1,0 +1,22 @@
+//
+// SPDX-FileCopyrightText: 2024 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "sensors.oplus_virtual",
+    defaults: ["hidl_defaults"],
+    srcs: [
+        "oplus_virtual_sensors.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "liblog",
+        "libutils",
+    ],
+    header_libs: [
+        "libhardware_headers",
+        "generated_kernel_headers",
+    ],
+    vendor: true,
+}
