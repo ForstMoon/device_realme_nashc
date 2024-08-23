@@ -67,6 +67,10 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        system_ext/lib64/libsource.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --add-needed "libui_shim.so" "${2}"
+            ;;
         odm/bin/hw/vendor.oplus.hardware.charger@1.0-service|\
         odm/lib64/libosenseaidlhalclient.so)
             [ "$2" = "" ] && return 0
