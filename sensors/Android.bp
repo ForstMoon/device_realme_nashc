@@ -4,10 +4,36 @@
 //
 
 cc_library_shared {
+    name: "android.hardware.sensors@1.0-impl-nashc",
+    defaults: ["hidl_defaults"],
+    proprietary: true,
+    relative_install_path: "hw",
+    srcs: [
+        "Sensors.cpp",
+        "SensorEventQueue.cpp",
+        "convert.cpp",
+        "multihal.cpp",
+    ],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libhardware",
+        "libbase",
+        "libutils",
+        "libhidlbase",
+        "android.hardware.sensors@1.0",
+    ],
+    whole_static_libs: [
+        "sensors_common_convert",
+    ],
+    local_include_dirs: ["include/sensors"],
+}
+
+cc_library_shared {
     name: "sensors.oplus_virtual",
     defaults: ["hidl_defaults"],
     srcs: [
-        "oplus_virtual_sensors.cpp",
+        "modules/oplus_virtual_sensors.cpp",
     ],
     shared_libs: [
         "libcutils",
@@ -25,7 +51,7 @@ cc_library_shared {
     name: "sensors.udfps",
     defaults: ["hidl_defaults"],
     srcs: [
-        "udfps_hal.cpp",
+        "modules/udfps_hal.cpp",
     ],
     shared_libs: [
         "libcutils",
