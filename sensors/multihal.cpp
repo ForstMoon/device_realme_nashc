@@ -17,6 +17,8 @@
 #include "SensorEventQueue.h"
 #include "multihal.h"
 
+#include "AlsCorrection.h"
+
 #define LOG_NDEBUG 1
 #include <log/log.h>
 #include <cutils/atomic.h>
@@ -38,6 +40,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+static int SENSOR_TYPE_ANDROID_WISE_LIGHT = 65627;
 
 static pthread_mutex_t init_modules_mutex = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t init_sensors_mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -381,6 +384,9 @@ int sensors_poll_context_t::poll(sensors_event_t *data, int maxReads) {
                 } else {
                     eventsRead++;
                 }
+                if (data[eventsRead].type == SENSOR_TYPE_ANDROID_WISE_LIGHT) {
+                    AlsCorrection::correct(data[eventsRead].light);
+                }
                 queue->dequeue();
             }
             this->nextReadIndex = (this->nextReadIndex + 1) % queueCount;
@@ -678,8 +684,9 @@ static void lazy_init_modules() {
  * Replace vendor sensor types with standard ones
  */
 static void fix_sensor_fields(sensor_t& sensor) {
-    if (sensor.type == 65627) { // android.sensor.wise_light(65627)
+    if (sensor.type == SENSOR_TYPE_ANDROID_WISE_LIGHT) {
         sensor.type = SENSOR_TYPE_LIGHT;
+        AlsCorrection::init();
         ALOGI("Replaced Wise Light sensor with standard light sensor");
     }
 }

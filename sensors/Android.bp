@@ -9,6 +9,7 @@ cc_library_shared {
     proprietary: true,
     relative_install_path: "hw",
     srcs: [
+        "AlsCorrection.cpp",
         "Sensors.cpp",
         "SensorEventQueue.cpp",
         "convert.cpp",
@@ -19,9 +20,12 @@ cc_library_shared {
         "libcutils",
         "libhardware",
         "libbase",
+        "libbinder",
+        "libbinder_ndk",
         "libutils",
         "libhidlbase",
         "android.hardware.sensors@1.0",
+        "vendor.lineage.oplus_als-V1-ndk",
     ],
     whole_static_libs: [
         "sensors_common_convert",
