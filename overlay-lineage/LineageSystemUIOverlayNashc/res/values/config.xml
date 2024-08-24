@@ -18,4 +18,42 @@
 
     <!-- Color of the UDFPS Pressed view -->
     <color name="config_udfpsColor">#00ffffff</color>
+
+    <!-- Use framework FOD dimming instead of kernel dimming -->
+    <bool name="config_udfpsFrameworkDimming">true</bool>
+
+    <!-- Array of brightness-alpha lut for framework dimming -->
+    <string-array name="config_udfpsDimmingBrightnessAlphaArray" translatable="false">
+        <item>0,255</item>
+        <item>1,238</item>
+        <item>2,228</item>
+        <item>3,210</item>
+        <item>4,194</item>
+        <item>5,184</item>
+        <item>6,176</item>
+        <item>7,171</item>
+        <item>8,165</item>
+        <item>10,160</item>
+        <item>12,152</item>
+        <item>15,146</item>
+        <item>18,139</item>
+        <item>22,133</item>
+        <item>27,128</item>
+        <item>33,121</item>
+        <item>40,116</item>
+        <item>50,111</item>
+        <item>60,106</item>
+        <item>75,99</item>
+        <item>92,94</item>
+        <item>112,89</item>
+        <item>139,83</item>
+        <item>169,80</item>
+        <item>205,74</item>
+        <item>255,69</item>
+    </string-array>
+
+    <!-- The amount of delay to add when disabling the dimming.
+         This is used to prevent flickers due to the dimming being disabled
+         before the screen has had chance to switch out of HBM mode -->
+    <integer name="config_udfpsDimmingDisableDelay">35</integer>
 </resources>
