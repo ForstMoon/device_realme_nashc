@@ -674,6 +674,17 @@ static void lazy_init_modules() {
 }
 
 /*
+ * Fix the fields of the sensor
+ * Replace vendor sensor types with standard ones
+ */
+static void fix_sensor_fields(sensor_t& sensor) {
+    if (sensor.type == 65627) { // android.sensor.wise_light(65627)
+        sensor.type = SENSOR_TYPE_LIGHT;
+        ALOGI("Replaced Wise Light sensor with standard light sensor");
+    }
+}
+
+/*
  * Lazy-initializes global_sensors_count, global_sensors_list, and module_sensor_handles.
  */
 static void lazy_init_sensors_list() {
@@ -738,6 +749,7 @@ static void lazy_init_sensors_list() {
             ALOGV("module_index %d, local_handle %d, global_handle %d",
                     module_index, local_handle, global_handle);
 
+            fix_sensor_fields(mutable_sensor_list[mutable_sensor_index]);
             mutable_sensor_index++;
         }
         module_index++;
