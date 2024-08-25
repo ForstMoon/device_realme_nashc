@@ -1,3 +1,16 @@
+# ALS
+vendor.sensors.als_correction.grabrect=656 2 692 38
+vendor.sensors.als_correction.bias=0
+vendor.sensors.als_correction.hbr=true
+vendor.sensors.als_correction.rgbw_max_lux_div=829.0 1537.0 1319.0 673.0
+vendor.sensors.als_correction.rgbw_poly1=2.4E-05 0.00599 0.21617 0.0
+vendor.sensors.als_correction.rgbw_poly2=4.8E-05 0.0108 0.24531 0.0
+vendor.sensors.als_correction.rgbw_poly3=3.7E-05 0.01138 0.05037 0.0
+vendor.sensors.als_correction.rgbw_poly4=7.4E-05 0.01022 0.53187 0.0
+vendor.sensors.als_correction.grayscale_weights=0.232 0.415 0.353
+vendor.sensors.als_correction.sensor_gaincal_points=45.0 115.0 170.0 0.0
+vendor.sensors.als_correction.sensor_inverse_gain=0.11 0.282 0.140 0.035
+
 # Audio
 aaudio.mmap_exclusive_policy=2
 aaudio.mmap_policy=2
