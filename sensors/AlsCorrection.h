@@ -7,9 +7,10 @@
 #pragma once
 
 #include <aidl/vendor/lineage/oplus_als/BnAreaCapture.h>
+#include <hardware/sensors.h>
 
 class AlsCorrection {
   public:
     static void init();
-    static void correct(float& light);
+    static void process(sensors_event_t& event);
 };

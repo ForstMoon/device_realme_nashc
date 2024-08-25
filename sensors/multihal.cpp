@@ -378,14 +378,14 @@ int sensors_poll_context_t::poll(sensors_event_t *data, int maxReads) {
             } else {
                 empties = 0;
                 this->copy_event_remap_handle(&data[eventsRead], event, nextReadIndex);
+                if (data[eventsRead].type == SENSOR_TYPE_ANDROID_WISE_LIGHT) {
+                    AlsCorrection::process(data[eventsRead]);
+                }
                 if (data[eventsRead].sensor == SENSORS_HANDLE_BASE - 1) {
                     // Bad handle, do not pass corrupted event upstream !
                     ALOGW("Dropping bad local handle event packet on the floor");
                 } else {
                     eventsRead++;
-                }
-                if (data[eventsRead].type == SENSOR_TYPE_ANDROID_WISE_LIGHT) {
-                    AlsCorrection::correct(data[eventsRead].light);
                 }
                 queue->dequeue();
             }
