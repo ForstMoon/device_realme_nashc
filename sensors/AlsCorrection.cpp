@@ -22,7 +22,7 @@ using android::base::GetIntProperty;
 using android::base::GetProperty;
 
 #define ALS_CALI_DIR "/proc/sensor/als_cali/"
-#define BRIGHTNESS_DIR "/sys/class/backlight/panel0-backlight/"
+#define BRIGHTNESS_DIR "/sys/kernel/oplus_display/"
 
 static const std::string rgbw_max_lux_paths[4] = {
     ALS_CALI_DIR "red_max_lux",
@@ -144,7 +144,7 @@ void AlsCorrection::init() {
     conf.calib_gain = cali_coe > 0.0 ? cali_coe / 1000.0 : 1.0;
     ALOGI("Calibrated sensor gain: %.2fx", 1.0 / (conf.calib_gain * conf.sensor_inverse_gain[0]));
 
-    conf.max_brightness = get(BRIGHTNESS_DIR "max_brightness", 1023.0);
+    conf.max_brightness = get(BRIGHTNESS_DIR "oplus_max_brightness", 1023.0);
 
     for (auto& range : hysteresis_ranges) {
         range.min /= conf.calib_gain * conf.sensor_inverse_gain[0];
@@ -172,7 +172,7 @@ void AlsCorrection::process(sensors_event_t& event) {
     }
 
     nsecs_t now = systemTime(SYSTEM_TIME_BOOTTIME);
-    float brightness = get(BRIGHTNESS_DIR "brightness", 0.0);
+    float brightness = get(BRIGHTNESS_DIR "oplus_brightness", 0.0);
 
     if (state.last_update == 0) {
         state.last_update = now;
