@@ -1,3 +1,6 @@
+binder_use(hal_sensors_default)
+hal_client_domain(hal_sensors_default, hal_lineage_oplus_als)
+
 r_dir_file(hal_sensors_default, vendor_proc_oplus_sensor_feature)
 r_dir_file(hal_sensors_default, vendor_sysfs_oplus_virtual_sensor)
 
@@ -19,3 +22,5 @@ r_dir_file(hal_sensors_default, vendor_sysfs_graphics)
 r_dir_file(hal_sensors_default, vendor_proc_oplus_sensor_als)
 
 allow hal_sensors_default vendor_proc_oplus_sensor_als:file w_file_perms;
+
+get_prop(hal_sensors_default, system_sensors_als_prop)
