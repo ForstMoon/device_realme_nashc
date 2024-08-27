@@ -203,6 +203,7 @@ PRODUCT_PACKAGES += \
     SettingsProviderOverlayNashc \
     SettingsOverlayNashc \
     SystemUIOverlayNashc \
+    TetheringResOverlayNashc \
     WifiResOverlayNashc
 
 # Permissions
