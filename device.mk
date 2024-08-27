@@ -202,7 +202,8 @@ PRODUCT_PACKAGES += \
     OplusDozeOverlayNashc \
     SettingsProviderOverlayNashc \
     SettingsOverlayNashc \
-    SystemUIOverlayNashc
+    SystemUIOverlayNashc \
+    WifiResOverlayNashc
 
 # Permissions
 PRODUCT_COPY_FILES += \
