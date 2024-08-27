@@ -821,6 +821,10 @@ vendor/lib64/hw/gps.default.so
 vendor/lib64/libDR.so
 vendor/lib64/libmnl.so
 
+# Hotword Enrollment
+-my_product/framework/com.android.hotwordenrollment.common.util.jar:system_ext/framework/com.android.hotwordenrollment.common.util.jar
+-my_product/priv-app/HotwordEnrollmentOKGoogleCORTEXM4.apk:product/priv-app/HotwordEnrollmentOKGoogleCORTEXM4/HotwordEnrollmentOKGoogleCORTEXM4.apk
+
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@4.0-service.trustonic
 vendor/etc/init/android.hardware.keymaster@4.0-service.trustonic.rc
