@@ -28,6 +28,9 @@ ZYGOTE_FORCE_64 := true
 # Force any prefer32 targets to be compiled as 64 bit.
 IGNORE_PREFER32_ON_DEVICE := true
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := RMX3085L1,RMX3085,nashc
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := RM6785
 TARGET_NO_BOOTLOADER := true
