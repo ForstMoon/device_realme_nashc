@@ -16,6 +16,9 @@ genfscon sysfs /class/oplus_chg                                                 
 genfscon sysfs /devices/virtual/oplus_chg                                                   u:object_r:vendor_sysfs_usb_supply:s0
 genfscon sysfs /devices/platform/extcon_usb/extcon                                          u:object_r:sysfs_extcon:s0
 
+# devinfo
+genfscon proc /devinfo                                                                      u:object_r:proc_devinfo:s0
+
 # Display
 genfscon proc /devinfo/lcd                          u:object_r:vendor_proc_display:s0
 genfscon proc /touchpanel                           u:object_r:vendor_proc_display:s0
