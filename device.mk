@@ -89,10 +89,6 @@ PRODUCT_PACKAGES += \
     libpower.vendor:64 \
     libutilscallstack.vendor:64
 
-# Doze
-PRODUCT_PACKAGES += \
-    OplusDoze
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
@@ -204,7 +200,6 @@ PRODUCT_PACKAGES += \
     FrameworksResOverlayNashc \
     LineageSDKOverlayNashc \
     LineageSystemUIOverlayNashc \
-    OplusDozeOverlayNashc \
     SettingsProviderOverlayNashc \
     SettingsOverlayNashc \
     SystemUIOverlayNashc \
