@@ -4,40 +4,10 @@
 //
 
 cc_library_shared {
-    name: "android.hardware.sensors@1.0-impl-nashc",
-    defaults: ["hidl_defaults"],
-    proprietary: true,
-    relative_install_path: "hw",
-    srcs: [
-        "AlsCorrection.cpp",
-        "Sensors.cpp",
-        "SensorEventQueue.cpp",
-        "convert.cpp",
-        "multihal.cpp",
-    ],
-    shared_libs: [
-        "liblog",
-        "libcutils",
-        "libhardware",
-        "libbase",
-        "libbinder",
-        "libbinder_ndk",
-        "libutils",
-        "libhidlbase",
-        "android.hardware.sensors@1.0",
-        "vendor.lineage.oplus_als-V1-ndk",
-    ],
-    whole_static_libs: [
-        "sensors_common_convert",
-    ],
-    local_include_dirs: ["include/sensors"],
-}
-
-cc_library_shared {
     name: "sensors.oplus_virtual",
     defaults: ["hidl_defaults"],
     srcs: [
-        "modules/oplus_virtual_sensors.cpp",
+        "oplus_virtual_sensors.cpp",
     ],
     shared_libs: [
         "libcutils",
@@ -52,10 +22,29 @@ cc_library_shared {
 }
 
 cc_library_shared {
+    name: "sensors.als_wrapper",
+    defaults: ["hidl_defaults"],
+    srcs: [
+        "AlsCorrection.cpp",
+        "als_wrapper.cpp",
+    ],
+    shared_libs: [
+        "libbinder",
+        "libbinder_ndk",
+        "libcutils",
+        "libhardware",
+        "liblog",
+        "libutils",
+        "vendor.lineage.oplus_als-V1-ndk",
+    ],
+    vendor: true,
+}
+
+cc_library_shared {
     name: "sensors.udfps",
     defaults: ["hidl_defaults"],
     srcs: [
-        "modules/udfps_hal.cpp",
+        "udfps_hal.cpp",
     ],
     shared_libs: [
         "libcutils",

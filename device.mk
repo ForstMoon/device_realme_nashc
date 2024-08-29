@@ -304,7 +304,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.oplus_als.service \
     android.hardware.sensors@1.0-service \
-    android.hardware.sensors@1.0-impl-nashc:64 \
+    android.hardware.sensors@1.0-impl:64 \
+    sensors.als_wrapper:64 \
     sensors.oplus_virtual:64 \
     sensors.udfps:64
 
