@@ -97,3 +97,6 @@ on boot
 
 on property:ro.boot.prjname=*
     setprop ro.separate.soft ${ro.boot.prjname}
+
+on property:sys.boot_completed=1
+    write /sys/devices/virtual/oplus_chg/usb/otg_switch 1
