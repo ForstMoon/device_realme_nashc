@@ -103,6 +103,13 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libalsautils.so" "libalsautils-v31.so" "${2}"
             ;;
+        vendor/lib64/libalsautils-v31.so|\
+        vendor/lib64/libwifi-hal-mtk.so|\
+        vendor/lib64/libnir_neon_driver_ndk.mtk.vndk.so|\
+        vendor/lib64/libspeech_enh_lib.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF_0_17_2}" --set-soname "$(basename "${1}")" "${2}"
+            ;;
         vendor/lib64/hw/vendor.mediatek.hardware.pq@2.15-impl.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
