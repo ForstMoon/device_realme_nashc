@@ -869,9 +869,11 @@ vendor/lib/libvpu.so
 vendor/lib/libvpu5.so
 vendor/lib/libvpud_vcodec.so
 vendor/lib/VP9SecureVdecCA.so
+vendor/lib64/libadpcmdec_mtk.so
 vendor/lib64/libbwc.so
 vendor/lib64/libion_mtk.so
 vendor/lib64/libion_ulit.so
+vendor/lib64/libmp3dec_mtk.so
 vendor/lib64/libvpu.so
 vendor/lib64/libvpu5.so
 
