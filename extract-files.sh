@@ -78,10 +78,6 @@ function blob_fixup() {
             sed -i "/NXPLOG_\w\+_LOGLEVEL/ s/0x03/0x02/" "${2}"
             sed -i "s/NFC_DEBUG_ENABLED=0x01/NFC_DEBUG_ENABLED=0x00/" "${2}"
             ;;
-        vendor/lib64/libsensorndkbridge-hidl.so)
-            [ "$2" = "" ] && return 0
-            "${PATCHELF}" --set-soname "libsensorndkbridge-hidl.so" "${2}"
-            ;;
         vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so)
             [ "$2" = "" ] && return 0
             grep -q "libcamera_metadata_shim.so" "${2}" || "${PATCHELF}" --add-needed "libcamera_metadata_shim.so" "${2}"
@@ -95,7 +91,7 @@ function blob_fixup() {
         vendor/lib64/libcam.utils.sensorprovider.so|\
         vendor/lib64/liboplus_mtkcam_lightsensorprovider.so)
             [ "$2" = "" ] && return 0
-            "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "libsensorndkbridge-hidl.so" "${2}"
+            "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "android.hardware.sensors@1.0-convert-shared.so" "${2}"
             ;;
         vendor/lib64/hw/audio.primary.mt6785.so)
             [ "$2" = "" ] && return 0
@@ -104,7 +100,7 @@ function blob_fixup() {
         vendor/lib64/hw/vendor.mediatek.hardware.pq@2.15-impl.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
-            "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "libsensorndkbridge-hidl.so" "${2}"
+            "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "android.hardware.sensors@1.0-convert-shared.so" "${2}"
             ;;
         *)
             return 1

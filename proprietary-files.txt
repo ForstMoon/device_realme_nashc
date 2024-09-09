@@ -1049,7 +1049,6 @@ vendor/lib64/libhwm-oplus.so
 vendor/lib64/libhwm.so
 vendor/lib64/libksensor.so
 vendor/lib64/libsensor_custom.so
-vendor/lib64/libsensorndkbridge.so:vendor/lib64/libsensorndkbridge-hidl.so
 
 # Sound Trigger
 vendor/lib64/libvow_ap_test_aa.so
