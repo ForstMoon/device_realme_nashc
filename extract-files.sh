@@ -103,6 +103,19 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libalsautils.so" "libalsautils-v31.so" "${2}"
             ;;
+        vendor/lib64/libmnl.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF_0_17_2}" --add-needed "libcutils.so" "${2}"
+            ;;
+        vendor/lib64/libSQLiteModule_VER_ALL.so|\
+        vendor/lib64/lib3a.flash.so|\
+        vendor/lib64/lib3a.ae.stat.so|\
+        vendor/lib64/lib3a.sensors.color.so|\
+        vendor/lib64/lib3a.sensors.flicker.so|\
+        vendor/lib64/libaaa_ltm.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF_0_17_2}" --add-needed "liblog.so" "${2}"
+            ;;
         vendor/lib64/libalsautils-v31.so|\
         vendor/lib64/libwifi-hal-mtk.so|\
         vendor/lib64/libnir_neon_driver_ndk.mtk.vndk.so|\
