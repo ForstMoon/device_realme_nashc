@@ -67,6 +67,10 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        system_ext/lib64/libsink.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --add-needed "libshim_sink.so" "${2}"
+            ;;
         system_ext/lib64/libsource.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "libui_shim.so" "${2}"
