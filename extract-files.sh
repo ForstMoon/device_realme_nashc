@@ -67,6 +67,11 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        odm/bin/hw/vendor.oplus.hardware.charger@1.0-service|\
+        odm/lib64/libosenseaidlhalclient.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "vendor.oplus.hardware.osense.client-V1-ndk_platform.so" "vendor.oplus.hardware.osense.client-V1-ndk.so" "${2}"
+            ;;
         vendor/bin/hw/android.hardware.gnss-service.mediatek|\
         vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so)
             [ "$2" = "" ] && return 0
