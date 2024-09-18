@@ -1,3 +1,7 @@
+on init && property:ro.bootmode=charger
+    write /sys/class/graphics/fb0/blank 1
+    write /sys/class/graphics/fb0/blank 0
+
 on charger
     write /sys/class/leds/lcd-backlight/trigger "backlight"
 
