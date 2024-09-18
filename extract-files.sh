@@ -82,6 +82,10 @@ function blob_fixup() {
             grep -q "libstagefright_foundation-v33.so" "${2}" || "${PATCHELF}" --add-needed "libstagefright_foundation-v33.so" "${2}"
             "${PATCHELF}" --replace-needed "libavservices_minijail_vendor.so" "libavservices_minijail.so" "${2}"
             ;;
+       vendor/etc/init/android.hardware.neuralnetworks@1.3-service-mtk-neuron.rc)
+            [ "$2" = "" ] && return 0
+            sed -i 's/start/enable/' "${2}"
+            ;;
         vendor/etc/libnfc-nci.conf)
             [ "$2" = "" ] && return 0
             sed -i "s/NFC_DEBUG_ENABLED=0x01/NFC_DEBUG_ENABLED=0x00/" "${2}"
