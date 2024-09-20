@@ -139,10 +139,10 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "liblog.so" "${2}"
             ;;
-        vendor/lib64/libalsautils-v31.so|\
+        vendor/lib/libalsautils-v31.so|\
         vendor/lib64/libwifi-hal-mtk.so|\
         vendor/lib64/libnir_neon_driver_ndk.mtk.vndk.so|\
-        vendor/lib64/libspeech_enh_lib.so)
+        vendor/lib/libspeech_enh_lib.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --set-soname "$(basename "${1}")" "${2}"
             ;;

@@ -14,17 +14,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@7.0-impl:64 \
-    android.hardware.audio.effect@7.0-impl:64 \
-    android.hardware.audio.service
+    android.hardware.audio@7.0-impl:32 \
+    android.hardware.audio.effect@7.0-impl:32 \
+    android.hardware.audio.service_32
 
 PRODUCT_PACKAGES += \
-    audio.bluetooth.default:64 \
-    android.hardware.bluetooth.audio-impl:64
+    audio.bluetooth.default:32 \
+    android.hardware.bluetooth.audio-impl:32
 
 PRODUCT_PACKAGES += \
-    libdynproc:64 \
-    libhapticgenerator:64
+    libdynproc:32 \
+    libhapticgenerator:32
 
 PRODUCT_PACKAGES += \
     MtkInCallService
