@@ -71,11 +71,11 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             apktool_patch "${2}" "${MY_DIR}/blob-patches/ImsService.patch"
             ;;
-        system_ext/lib64/libsink.so)
+        lib64/libsink.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "libshim_sink.so" "${2}"
             ;;
-        system_ext/lib64/libsource.so)
+        lib64/libsource.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --add-needed "libui_shim.so" "${2}"
             ;;
