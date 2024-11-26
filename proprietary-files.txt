@@ -1158,7 +1158,7 @@ vendor/lib64/vendor.mediatek.hardware.apuware.utils@2.0.so
 odm/etc/init/init.pn8x.nfc.rc
 odm/etc/nfc/libnfc-nci.conf_20732:vendor/etc/libnfc-nci.conf
 odm/etc/nfc/libnfc-nxp.conf_20732:vendor/etc/libnfc-nxp.conf
-odm/lib/libpn557_fw.so
+odm/lib/libpn557_fw.so:odm/lib64/libpn557_fw.so
 odm/lib/libpnscr2.so
 odm/lib64/libpnscr2.so
 
