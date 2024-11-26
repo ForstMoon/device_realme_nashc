@@ -12,8 +12,8 @@ vendor.sensors.als_correction.sensor_gaincal_points=45.0 115.0 170.0 0.0
 vendor.sensors.als_correction.sensor_inverse_gain=0.11 0.282 0.140 0.035
 
 # Audio
-aaudio.mmap_exclusive_policy=2
-aaudio.mmap_policy=2
+aaudio.mmap_exclusive_policy=0
+aaudio.mmap_policy=0
 ro.config.vc_call_vol_steps=15
 ro.vendor.mtk_audio_alac_support=1
 ro.vendor.mtk_audio_ape_support=1
