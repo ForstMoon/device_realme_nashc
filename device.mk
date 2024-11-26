@@ -87,8 +87,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/mediatek-ims-base.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/mediatek-ims-base.xml \
     $(LOCAL_PATH)/configs/permissions/mediatek-ims-common.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/mediatek-ims-common.xml
 
-$(call inherit-product, hardware/oplus/oplus-fwk/oplus-fwk.mk)
-
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light-service.nashc
