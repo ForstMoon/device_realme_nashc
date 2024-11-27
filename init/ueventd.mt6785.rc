@@ -152,3 +152,6 @@
 
 #MTK In-House TEE
 /dev/ttyACM0              0660   radio      radio
+
+# V4L2 devices
+/dev/video*               0660   camera     system
