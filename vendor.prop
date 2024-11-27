@@ -235,6 +235,7 @@ ro.vendor.mtk_trustonic_tee_support=1
 
 # UVC
 ro.usb.uvc.enabled=true
+ro.usb.uvc.payload_transfer_size=1024
 
 # Wi-Fi
 ro.vendor.wifi.sap.concurrent.iface=ap1
