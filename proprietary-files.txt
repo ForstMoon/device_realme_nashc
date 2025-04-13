@@ -1049,13 +1049,13 @@ system_ext/bin/vtservice|fb9c50e2341fd82c3ebd789fb1b803a9fef3c660
 system_ext/etc/init/init.vtservice.rc
 system_ext/lib64/libmtk_vt_wrapper.so|d2f03258234ba7b458eccb8b4dd5c395c994fed4
 system_ext/lib64/libsignal.so|615f7244e532b2245bb148b5e8bd648296d72f5f
-system_ext/lib64/libsink.so
+system_ext/lib64/libsink.so:system_ext/lib64/libsink-mtk.so;FIX_SONAME
 system_ext/lib64/libsource.so
 system_ext/lib64/libvcodec_cap.so|92dccc71ac6413874e13decf4f83564a68dd5167
 system_ext/lib64/libvcodec_capenc.so|f6f0f89dde16e5ccf108c2c1c91033bc908fc96a
 system_ext/lib64/libvt_avsync.so|89f4708ced15e4b5dffa4d1f273852c90f50374f
 system_ext/lib64/libcomutils.so|6768b4bafff86e58285eb5427aeee64f3d16110f
-system_ext/lib64/libimsma.so;DISABLE_CHECKELF
+system_ext/lib64/libimsma.so
 system_ext/lib64/libimsma_adapt.so|55a306b29a697ab057dbc6b9bbe9cb51e0e7b9e5
 system_ext/lib64/libimsma_rtp.so|1863973397d55c61e14ce118cb39a39fdf5ef966
 system_ext/lib64/libimsma_socketwrapper.so|8067368321f048db0dc181d85667bfee8b882d70
