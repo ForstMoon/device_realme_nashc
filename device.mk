@@ -272,6 +272,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator-service.mediatek
 
+# Service Manager
+PRODUCT_PACKAGES += \
+    vndservicemanager
+
 # Wi-Fi
 PRODUCT_PACKAGES += \
     libwifi-hal-wrapper:64 \
