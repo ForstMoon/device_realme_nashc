@@ -201,6 +201,9 @@ PRODUCT_PACKAGES += \
 # Properties
 include $(LOCAL_PATH)/vendor_logtag.mk
 
+# Platform
+TARGET_BOARD_PLATFORM := mt6785
+
 # Rootdir
 PRODUCT_PACKAGES += \
     nfc_detect.sh \
