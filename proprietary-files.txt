@@ -182,8 +182,8 @@ vendor/lib64/libbluetooth_mtk_pure.so
 vendor/lib64/libbluetooth_mtk.so
 vendor/lib64/libbt-vendor.so
 
-# Bluetooth (Firmware) - from a14mnnxx-user 13 TP1A.220624.014 A145PXXU1AWA3 release-keys
-vendor/firmware/soc1_0_ram_bt_1a_1_hdr.bin:vendor/firmware/soc1_0_ram_bt_2a_1_hdr.bin|9cd0d79cde76a59ddd8545b1621af1176c5f9605
+# Bluetooth (Firmware) - from a05mjxx-user 14 UP1A.231005.007 M055FXXS2AXJ1 release-keys
+vendor/firmware/soc1_0_ram_bt_1a_1_hdr.bin:vendor/firmware/soc1_0_ram_bt_2a_1_hdr.bin|8c5d8e93ad8a03c6de5aaaad8ef58d53e75c8378
 
 # Camera
 odm/lib64/libmpbase.so
