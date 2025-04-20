@@ -46,6 +46,9 @@ vendor/lib/liboplus_audio_config.so
 vendor/lib/librt_extamp_intf.so
 vendor/lib/libspeech_enh_lib.so;FIX_SONAME
 vendor/lib/libspeechparser_vendor.so
+vendor/lib64/libspeechparser_vendor.so
+vendor/lib/libmtkspparser.so
+vendor/lib64/libmtkspparser.so
 vendor/lib/vendor.mediatek.hardware.audio@7.1.so
 vendor/lib/vendor.mediatek.hardware.bluetooth.audio@2.1.so
 vendor/lib/vendor.mediatek.hardware.bluetooth.audio@2.2.so
@@ -1040,41 +1043,31 @@ vendor/lib64/libmnl.so
 my_product/framework/com.android.hotwordenrollment.common.util.jar:system_ext/framework/com.android.hotwordenrollment.common.util.jar
 my_product/priv-app/HotwordEnrollmentOKGoogleCORTEXM4.apk:product/priv-app/HotwordEnrollmentOKGoogleCORTEXM4/HotwordEnrollmentOKGoogleCORTEXM4.apk
 
-# IMS (Native)
-system/bin/vtservice
-system/etc/init/init.vtservice.rc
-system/lib/libmtk_vt_wrapper.so
-system/lib/libvcodec_cap.so
-system/lib/libvcodec_capenc.so
-system/lib/libvsim-adaptor-client.so
-system/lib64/libcomutils.so
-system/lib64/libimsma_adapt.so
-system/lib64/libimsma_rtp.so
-system/lib64/libimsma_socketwrapper.so
-system/lib64/libimsma.so
-system/lib64/libmtk_vt_service.so
-system/lib64/libmtk_vt_wrapper.so
-system/lib64/libsignal.so
-system/lib64/libsink.so
-system/lib64/libsource.so
-system/lib64/libvcodec_cap.so
-system/lib64/libvcodec_capenc.so
-system/lib64/libvsim-adaptor-client.so
-system/lib64/libvt_avsync.so
-system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
-system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
 
-# IMS - from zahedan - zahedan-user 14 UQ1A.240205.004 V5.24.2.0.BOND release-keys
-system_ext/framework/mediatek-common.jar|b4f57c8f65b92d8b65074911b626559107764bb5
-system_ext/framework/mediatek-framework.jar|73d22531a8cb342712e66333120b7e0f6615733c
-system_ext/framework/mediatek-ims-base.jar|a6f7ae937de5b9c25e41af8c15db2717a31a6e97
-system_ext/framework/mediatek-ims-common.jar|163657f0dea57218c55fc758fefa6eecf2edb8f6
-system_ext/framework/mediatek-ims-extension-plugin.jar|4562720d65136b189d661f248fd3170a749cada3
-system_ext/framework/mediatek-telecom-common.jar|247f6c23515d7336a857a749eba69ac63d4212f3
-system_ext/framework/mediatek-telephony-base.jar|018c0d93cd249e2bc0b3f865e2d3a946cf57a4cf
-system_ext/framework/mediatek-telephony-common.jar|9cdc9a9d04277c2fc74056f6b72ac3505701a238
-system_ext/priv-app/ImsService/ImsService.apk|e8a060b30bc5f5357ac8a17e36df41f26de9f28c
-system_ext/priv-app/MtkImsHelper/MtkImsHelper.apk|2eaa25703b9d6422a1e361c0f927e366d19a12ff
+# IMS - From Vitamin
+system_ext/bin/vtservice|fb9c50e2341fd82c3ebd789fb1b803a9fef3c660
+system_ext/etc/init/init.vtservice.rc
+system_ext/lib64/libmtk_vt_wrapper.so|d2f03258234ba7b458eccb8b4dd5c395c994fed4
+system_ext/lib64/libsignal.so|615f7244e532b2245bb148b5e8bd648296d72f5f
+system_ext/lib64/libsink.so
+system_ext/lib64/libsource.so
+system_ext/lib64/libvcodec_cap.so|92dccc71ac6413874e13decf4f83564a68dd5167
+system_ext/lib64/libvcodec_capenc.so|f6f0f89dde16e5ccf108c2c1c91033bc908fc96a
+system_ext/lib64/libvt_avsync.so|89f4708ced15e4b5dffa4d1f273852c90f50374f
+system_ext/lib64/libcomutils.so|6768b4bafff86e58285eb5427aeee64f3d16110f
+system_ext/lib64/libimsma.so;DISABLE_CHECKELF
+system_ext/lib64/libimsma_adapt.so|55a306b29a697ab057dbc6b9bbe9cb51e0e7b9e5
+system_ext/lib64/libimsma_rtp.so|1863973397d55c61e14ce118cb39a39fdf5ef966
+system_ext/lib64/libimsma_socketwrapper.so|8067368321f048db0dc181d85667bfee8b882d70
+system_ext/lib64/libmtk_vt_service.so|a15bbbef024597cda8516afa1c55e409991277ae
+system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so|877601fc7a2a111c0032425f231dc2dec4c9acda
+system_ext/lib64/vendor.mediatek.hardware.videotelephony-V1-ndk.so
+system_ext/framework/mediatek-common.jar|266b647f1c7a093fcc5fdbefec408e73f267770c
+system_ext/framework/mediatek-framework.jar|6ece547498a5fe6d80e6b0fd0905350364633334
+system_ext/framework/mediatek-ims-base.jar|d0126720040245e1cf376b9e5728f2f7ebc08650
+system_ext/framework/mediatek-ims-common.jar|e95b05c4d1c86f24d989e06a8e309c89f6f628f5
+system_ext/framework/mediatek-ims-extension-plugin.jar|4dc046fd958bdd3e69991bf6ae5687a387a30f1d
+system_ext/priv-app/ImsService/ImsService.apk
 
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@4.0-service.trustonic

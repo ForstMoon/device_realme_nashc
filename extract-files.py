@@ -21,6 +21,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
+	'device/realme/nashc',
 	'hardware/oplus',
 	'hardware/mediatek',
 	'hardware/mediatek/libmtkperf_client'
@@ -36,10 +37,12 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
-    'system/lib64/libsink.so': blob_fixup()
+    'system_ext/lib64/libsink.so': blob_fixup()
         .add_needed('libshim_sink.so'),
-    'system/lib64/libsource.so': blob_fixup()
+    'system_ext/lib64/libsource.so': blob_fixup()
         .add_needed('libui_shim.so'),
+    'system_ext/priv-app/ImsService/ImsService.apk': blob_fixup()
+        .apktool_patch('ims-patches'),
     ('odm/bin/hw/vendor.oplus.hardware.charger@1.0-service', 'odm/lib64/libosenseaidlhalclient.so'): blob_fixup()
         .replace_needed('vendor.oplus.hardware.osense.client-V1-ndk_platform.so', 'vendor.oplus.hardware.osense.client-V1-ndk.so'),
     ('vendor/bin/hw/android.hardware.gnss-service.mediatek', 'vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so'): blob_fixup()
@@ -47,7 +50,7 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/bin/hw/android.hardware.media.c2@1.2-mediatek-64b': blob_fixup()
         .add_needed('libstagefright_foundation-v33.so')
         .replace_needed('libavservices_minijail_vendor.so', 'libavservices_minijail.so'),
-    'vendor/etc/init/android.hardware.neuralnetworks@1.3-service-mtk-neuron.rc': blob_fixup()
+    ('system_ext/etc/init/init.vtservice.rc', 'vendor/etc/init/android.hardware.neuralnetworks@1.3-service-mtk-neuron.rc'): blob_fixup()
         .regex_replace('start', 'enable'),
     'vendor/etc/libnfc-nci.conf': blob_fixup()
         .regex_replace('NFC_DEBUG_ENABLED=0x01', 'NFC_DEBUG_ENABLED=0x00'),
