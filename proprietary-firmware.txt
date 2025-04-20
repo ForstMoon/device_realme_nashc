@@ -6,6 +6,7 @@ cam_vpu2.img
 cam_vpu3.img
 gz.img
 lk.img
+logo.img
 md1img.img
 preloader_ufs.img:preloader.img
 scp.img

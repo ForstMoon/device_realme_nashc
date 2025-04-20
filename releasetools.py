@@ -14,6 +14,7 @@ FIRMWARE_IMAGES = {
   "cam_vpu3.img": ["cam_vpu3"],
   "gz.img": ["gz1", "gz2"],
   "lk.img": ["lk", "lk2"],
+  "logo.img": ["logo"],
   "md1img.img": ["md1img"],
   "preloader.img": ["preloader", "preloader_backup"],
   "scp.img": ["scp1", "scp2"],
