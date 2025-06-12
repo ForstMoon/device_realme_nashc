@@ -1039,11 +1039,6 @@ vendor/lib64/hw/gps.default.so
 vendor/lib64/libDR.so
 vendor/lib64/libmnl.so
 
-# Hotword Enrollment
-my_product/framework/com.android.hotwordenrollment.common.util.jar:system_ext/framework/com.android.hotwordenrollment.common.util.jar
-my_product/priv-app/HotwordEnrollmentOKGoogleCORTEXM4.apk:product/priv-app/HotwordEnrollmentOKGoogleCORTEXM4/HotwordEnrollmentOKGoogleCORTEXM4.apk
-
-
 # IMS - From Vitamin
 system_ext/bin/vtservice|fb9c50e2341fd82c3ebd789fb1b803a9fef3c660
 system_ext/etc/init/init.vtservice.rc|50a2249906edc06059b443513db47a2ddc0490dc|d1bad63ed1e5dc8cbf02c5ec37022a7753330729
