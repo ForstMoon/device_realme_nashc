@@ -49,7 +49,7 @@
 /(vendor|system/vendor)/bin/nfc_detect\.sh                                                                             u:object_r:nfc_detect_exec:s0
 
 # Touch
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@[0-9]\.[0-9]-service\.oplus                                      u:object_r:hal_lineage_touch_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch-service\.oplus                                                   u:object_r:hal_lineage_touch_default_exec:s0
 
 # Vibrator
 /vendor/bin/hw/android\.hardware\.vibrator-service\.mediatek                                                           u:object_r:hal_vibrator_default_exec:s0
