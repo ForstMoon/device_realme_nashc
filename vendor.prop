@@ -239,7 +239,7 @@ ro.hardware.gatekeeper=trustonic
 ro.vendor.mtk_trustonic_tee_support=1
 
 # UVC
-ro.usb.uvc.enabled=true
+ro.usb.uvc.enabled=false
 ro.usb.uvc.payload_transfer_size=1024
 
 # Verity
