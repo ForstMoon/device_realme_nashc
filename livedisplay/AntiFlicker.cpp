@@ -14,30 +14,26 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.lineage.livedisplay@2.1-service-nashc"
+#include "AntiFlicker.h"
 
 #include <android-base/file.h>
 #include <android-base/strings.h>
-
-#include "AntiFlicker.h"
 
 using ::android::base::ReadFileToString;
 using ::android::base::Trim;
 using ::android::base::WriteStringToFile;
 
 namespace {
-
 constexpr const char* kDcDimmingPath = "/sys/kernel/oplus_display/dimlayer_bl_en";
-
 }  // anonymous namespace
 
+namespace aidl {
 namespace vendor {
 namespace lineage {
 namespace livedisplay {
-namespace V2_1 {
 namespace implementation {
 
-Return<bool> AntiFlicker::isEnabled() {
+ndk::ScopedAStatus AntiFlicker::getEnabled(bool* _aidl_return) {
     std::string tmp;
     int32_t contents = 0;
 
@@ -45,15 +41,19 @@ Return<bool> AntiFlicker::isEnabled() {
         contents = std::stoi(Trim(tmp));
     }
 
-    return contents > 0;
+    *_aidl_return = contents > 0;
+    return ndk::ScopedAStatus::ok();
 }
 
-Return<bool> AntiFlicker::setEnabled(bool enabled) {
-    return WriteStringToFile(std::to_string(enabled), kDcDimmingPath, true);
+ndk::ScopedAStatus AntiFlicker::setEnabled(bool enabled) {
+    if (!WriteStringToFile(std::to_string(enabled), kDcDimmingPath, true)) {
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+    }
+    return ndk::ScopedAStatus::ok();
 }
 
 }  // namespace implementation
-}  // namespace V2_1
 }  // namespace livedisplay
 }  // namespace lineage
 }  // namespace vendor
+}  // namespace aidl

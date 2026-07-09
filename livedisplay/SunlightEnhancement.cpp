@@ -15,6 +15,7 @@
  */
 
 #include "SunlightEnhancement.h"
+
 #include <android-base/file.h>
 #include <android-base/strings.h>
 
@@ -23,18 +24,16 @@ using ::android::base::Trim;
 using ::android::base::WriteStringToFile;
 
 namespace {
-
 constexpr const char* kHbmPath = "/sys/kernel/oplus_display/hbm";
-
 }  // anonymous namespace
 
+namespace aidl {
 namespace vendor {
 namespace lineage {
 namespace livedisplay {
-namespace V2_1 {
 namespace implementation {
 
-Return<bool> SunlightEnhancement::isEnabled() {
+ndk::ScopedAStatus SunlightEnhancement::getEnabled(bool* _aidl_return) {
     std::string tmp;
     int32_t contents = 0;
 
@@ -42,15 +41,19 @@ Return<bool> SunlightEnhancement::isEnabled() {
         contents = std::stoi(Trim(tmp));
     }
 
-    return contents > 0;
+    *_aidl_return = contents > 0;
+    return ndk::ScopedAStatus::ok();
 }
 
-Return<bool> SunlightEnhancement::setEnabled(bool enabled) {
-    return WriteStringToFile(std::to_string(enabled), kHbmPath, true);
+ndk::ScopedAStatus SunlightEnhancement::setEnabled(bool enabled) {
+    if (!WriteStringToFile(std::to_string(enabled), kHbmPath, true)) {
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+    }
+    return ndk::ScopedAStatus::ok();
 }
 
 }  // namespace implementation
-}  // namespace V2_1
 }  // namespace livedisplay
 }  // namespace lineage
 }  // namespace vendor
+}  // namespace aidl

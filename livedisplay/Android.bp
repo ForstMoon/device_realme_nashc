@@ -13,25 +13,21 @@
 // limitations under the License.
 
 cc_binary {
-    name: "vendor.lineage.livedisplay@2.1-service-nashc",
-    init_rc: ["vendor.lineage.livedisplay@2.1-service-nashc.rc"],
-    vintf_fragments: ["vendor.lineage.livedisplay@2.1-service-nashc.xml"],
+    name: "vendor.lineage.livedisplay-service-nashc",
+    init_rc: ["vendor.lineage.livedisplay-service-nashc.rc"],
+    vintf_fragments: ["vendor.lineage.livedisplay-service-nashc.xml"],
     vendor: true,
-    defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     shared_libs: [
         "libbase",
-        "libbinder",
+        "libbinder_ndk",
         "libcutils",
-        "libhidlbase",
         "libutils",
-        "vendor.lineage.livedisplay@2.0",
-        "vendor.lineage.livedisplay@2.1",
+        "vendor.lineage.livedisplay-V1-ndk",
     ],
-
     srcs: [
         "AntiFlicker.cpp",
         "SunlightEnhancement.cpp",
         "service.cpp",
-    ]
+    ],
 }

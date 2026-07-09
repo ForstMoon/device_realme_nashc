@@ -14,43 +14,37 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.lineage.livedisplay@2.1-service-nashc"
-
 #include <android-base/logging.h>
-#include <binder/ProcessState.h>
-#include <hidl/HidlTransportSupport.h>
+#include <android/binder_manager.h>
+#include <android/binder_process.h>
 
 #include "AntiFlicker.h"
 #include "SunlightEnhancement.h"
 
-using android::hardware::configureRpcThreadpool;
-using android::hardware::joinRpcThreadpool;
-
-using ::vendor::lineage::livedisplay::V2_1::IAntiFlicker;
-using ::vendor::lineage::livedisplay::V2_1::ISunlightEnhancement;
-using ::vendor::lineage::livedisplay::V2_1::implementation::AntiFlicker;
-using ::vendor::lineage::livedisplay::V2_1::implementation::SunlightEnhancement;
+using aidl::vendor::lineage::livedisplay::implementation::AntiFlicker;
+using aidl::vendor::lineage::livedisplay::implementation::SunlightEnhancement;
 
 int main() {
-    android::sp<IAntiFlicker> af = new AntiFlicker();
-    android::sp<SunlightEnhancement> se = new SunlightEnhancement();
+    ABinderProcess_setThreadPoolMaxThreadCount(0);
 
-    configureRpcThreadpool(1, true /*callerWillJoin*/);
+    std::shared_ptr<AntiFlicker> af = ndk::SharedRefBase::make<AntiFlicker>();
+    std::shared_ptr<SunlightEnhancement> se = ndk::SharedRefBase::make<SunlightEnhancement>();
 
-    if (af->registerAsService() != android::OK) {
-        LOG(ERROR) << "Cannot register anti flicker HAL service.";
+    const std::string afInstance = std::string() + AntiFlicker::descriptor + "/default";
+    if (AServiceManager_addService(af->asBinder().get(), afInstance.c_str()) != STATUS_OK) {
+        LOG(ERROR) << "Cannot register anti flicker AIDL service.";
         return 1;
     }
 
-    if (se->registerAsService() != android::OK) {
-        LOG(ERROR) << "Cannot register sunlight enhancement HAL service.";
+    const std::string seInstance = std::string() + SunlightEnhancement::descriptor + "/default";
+    if (AServiceManager_addService(se->asBinder().get(), seInstance.c_str()) != STATUS_OK) {
+        LOG(ERROR) << "Cannot register sunlight enhancement AIDL service.";
         return 1;
     }
 
-    LOG(INFO) << "LiveDisplay HAL service is ready.";
+    LOG(INFO) << "LiveDisplay AIDL HAL service is ready.";
+    ABinderProcess_joinThreadPool();
 
-    joinRpcThreadpool();
-
-    LOG(ERROR) << "LiveDisplay HAL service failed to join thread pool.";
-    return 1;
+    LOG(ERROR) << "LiveDisplay AIDL HAL service failed to join thread pool.";
+    return EXIT_FAILURE;
 }

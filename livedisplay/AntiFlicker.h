@@ -16,29 +16,22 @@
 
 #pragma once
 
-#include <hidl/MQDescriptor.h>
-#include <hidl/Status.h>
-#include <vendor/lineage/livedisplay/2.1/IAntiFlicker.h>
+#include <aidl/vendor/lineage/livedisplay/BnAntiFlicker.h>
 
+namespace aidl {
 namespace vendor {
 namespace lineage {
 namespace livedisplay {
-namespace V2_1 {
 namespace implementation {
 
-using ::android::hardware::Return;
-using ::android::hardware::Void;
-using ::android::sp;
-
-class AntiFlicker : public IAntiFlicker {
+class AntiFlicker : public BnAntiFlicker {
   public:
-    // Methods from ::vendor::lineage::livedisplay::V2_1::IAntiFlicker follow.
-    Return<bool> isEnabled() override;
-    Return<bool> setEnabled(bool enabled) override;
+    ndk::ScopedAStatus getEnabled(bool* _aidl_return) override;
+    ndk::ScopedAStatus setEnabled(bool enabled) override;
 };
 
 }  // namespace implementation
-}  // namespace V2_1
 }  // namespace livedisplay
 }  // namespace lineage
 }  // namespace vendor
+}  // namespace aidl

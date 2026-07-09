@@ -16,7 +16,9 @@ cc_library_shared {
     ],
     header_libs: [
         "libhardware_headers",
-        "generated_kernel_headers",
+    ],
+    generated_headers: [
+        "generated_kernel_includes",
     ],
     vendor: true,
 }
