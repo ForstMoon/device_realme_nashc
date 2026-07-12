@@ -72,7 +72,8 @@ $(call soong_config_set,surfaceflinger,udfps_lib,//hardware/oplus:libudfps_exten
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper-service.legacy
+    android.hardware.gatekeeper@1.0-service \
+    android.hardware.gatekeeper@1.0-impl:64
 
 # Health
 PRODUCT_PACKAGES += \
