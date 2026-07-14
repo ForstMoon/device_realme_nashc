@@ -27,3 +27,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     DeviceProduct=RMX3085 \
     SystemDevice=RMX3085L1 \
     SystemName=RMX3085
+
+# Set maintainer
+MISTOS_MAINTAINER := "Rem"
+
+# Enable GMS with mini package
+WITH_GMS := false
